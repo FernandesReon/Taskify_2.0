@@ -1,0 +1,5 @@
+package com.reon.taskservice.model;
+
+public enum Category {
+    FOOD_DRINKS, SHOPPING, HOUSING, BILLS, TRANSPORT, VEHICLE, ELECTRONICS, TECHNOLOGY, PERSONAL_PROJECT, OTHERS
+}

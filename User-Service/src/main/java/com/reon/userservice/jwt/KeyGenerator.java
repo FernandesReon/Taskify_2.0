@@ -1,16 +1,15 @@
 package com.reon.userservice.jwt;
 
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Encoders;
-import io.jsonwebtoken.security.Keys;
+import javax.crypto.SecretKey;
 
-import java.security.Key;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+import java.util.Base64;
 
 public class KeyGenerator {
     public static void main(String[] args) {
-        // secretKeyFor is deprecated for jjwt 12+
-        Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-        String secretString = Encoders.BASE64.encode(key.getEncoded());
-        System.out.println("Generated Secret: " + secretString);
+        SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+        String encodedKey = Base64.getEncoder().encodeToString(key.getEncoded());
+        System.out.println("Generated Key: " + encodedKey);
     }
 }

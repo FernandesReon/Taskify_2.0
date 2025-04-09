@@ -5,14 +5,13 @@ import com.reon.taskservice.dto.TaskResponse;
 import com.reon.taskservice.model.Task;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class TaskMapper {
     public static Task mapToTask(TaskCreation taskCreation){
         Task task = new Task();
         task.setTitle(taskCreation.getTitle());
         task.setDescription(taskCreation.getDescription());
-        task.setDueDate(taskCreation.getDueDate());
+        task.setDueDate(LocalDate.parse(taskCreation.getDueDate().toString()));
         task.setTaskStatus(taskCreation.getTaskStatus());
         task.setPriority(taskCreation.getPriority());
         task.setCategory(taskCreation.getCategory());
@@ -21,14 +20,17 @@ public class TaskMapper {
 
     public static TaskResponse taskResponse(Task task) {
         TaskResponse response = new TaskResponse();
+        response.setId(task.getId());
         response.setTitle(task.getTitle());
         response.setDescription(task.getDescription());
         response.setDueDate(task.getDueDate());
         response.setTaskStatus(task.getTaskStatus());
         response.setPriority(task.getPriority());
         response.setCategory(task.getCategory());
-        response.setCreatedOn(task.getCreatedOn());
-        response.setUpdateOn(task.getUpdateOn());
+        response.setCreatedOn(task.getCreatedOn().toLocalDate());
+        if (task.getUpdateOn() != null) {
+            response.setUpdateOn(task.getUpdateOn().toLocalDate());
+        }
         return response;
     }
 

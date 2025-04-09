@@ -43,7 +43,7 @@ public class User implements UserDetails {
 
     // For testing purpose set the value to true, later set it to false.
     private boolean accountEnabled = true;
-    private boolean emailVerified = false;
+    private boolean emailVerified = true;
 
     @Column(updatable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd 'T' HH:mm:ss")
@@ -62,7 +62,7 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles.stream()
-                .map(role -> new SimpleGrantedAuthority(role.name()))
+                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.name()))
                 .collect(Collectors.toList());
     }
 
@@ -84,5 +84,10 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return this.accountEnabled;
+    }
+
+    @Override
+    public String getUsername(){
+        return this.email;
     }
 }

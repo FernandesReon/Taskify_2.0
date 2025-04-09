@@ -10,6 +10,8 @@ import com.reon.taskservice.repository.TaskRepository;
 import com.reon.taskservice.service.TaskService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -46,6 +48,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
+    @CachePut(value = "task", key = "#taskId")
     public TaskResponse updateTask(Long taskId, TaskCreation updateCurrentTask) {
         logger.info("Updating task with id: " + taskId);
 
@@ -60,6 +63,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
+    @CacheEvict(value = "task", key = "#taskId")
     public void deleteTask(Long taskId) {
         logger.info("Deleting task with id: " + taskId);
         taskRepository.deleteById(taskId);

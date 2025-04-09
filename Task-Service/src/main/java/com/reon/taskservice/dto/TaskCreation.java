@@ -3,6 +3,7 @@ package com.reon.taskservice.dto;
 import com.reon.taskservice.model.Category;
 import com.reon.taskservice.model.Priority;
 import com.reon.taskservice.model.TaskStatus;
+import com.reon.taskservice.validators.CreateValidatorGroup;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class TaskCreation {
 
-    @NotBlank(message = "Title is required")
+    @NotBlank(message = "Title is required", groups = CreateValidatorGroup.class)
     private String title;
 
     @Size(max = 1000, message = "Description cannot exceed 1000 characters.")
@@ -28,7 +29,7 @@ public class TaskCreation {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
 
-    private TaskStatus taskStatus;
-    private Priority priority;
-    private Category category;
+    private TaskStatus taskStatus = TaskStatus.In_Progress;
+    private Priority priority = Priority.MEDIUM;
+    private Category category = Category.OTHERS;
 }

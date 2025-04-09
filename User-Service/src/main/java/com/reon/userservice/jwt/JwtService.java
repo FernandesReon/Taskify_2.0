@@ -5,24 +5,35 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Component
 public class JwtService {
 
     @Value("${jwt.secret}")
     private String SECRET;
+    private final Logger logger = LoggerFactory.getLogger(JwtService.class);
 
     public String extractEmail(String token){
-        return extractClaim(token, Claims::getSubject);
+        try {
+            return extractClaim(token, Claims::getSubject);
+        } catch (Exception e) {
+            logger.error("Failed to extract email from token: {}", e.getMessage());
+            throw e;
+        }
     }
 
     public Date extractExpiration(String token){
@@ -49,12 +60,17 @@ public class JwtService {
 
     public Boolean validateToken(String token, UserDetails userDetails){
         final String username = extractEmail(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+        boolean isExpired = isTokenExpired(token);
+        logger.info("Validating token: username={}, userDetails.username={}, isExpired={}", username, userDetails.getUsername(), isExpired);
+            return (username.equals(userDetails.getUsername()) && !isExpired);
     }
 
     // 1
-    public String generateToken(String email){
+    public String generateToken(String email, Collection<? extends GrantedAuthority> authorities){
         Map<String, Object> claims = new HashMap<>();
+        claims.put("roles", authorities.stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toList()));
         return createToken(claims, email);
     }
 

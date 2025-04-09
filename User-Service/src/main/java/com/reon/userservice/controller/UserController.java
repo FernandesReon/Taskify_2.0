@@ -5,7 +5,6 @@ import com.reon.userservice.dto.UserRegisterDTO;
 import com.reon.userservice.dto.UserResponseDTO;
 import com.reon.userservice.exception.UserNotFoundException;
 import com.reon.userservice.jwt.JwtService;
-import com.reon.userservice.service.impl.AdminServiceImpl;
 import com.reon.userservice.service.impl.UserServiceImpl;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -14,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -22,15 +22,13 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
     private final UserServiceImpl userService;
-    private final AdminServiceImpl adminService;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
 
-    public UserController(UserServiceImpl userService, AdminServiceImpl adminService,
-                          JwtService jwtService, AuthenticationManager authenticationManager) {
+    public UserController(UserServiceImpl userService, JwtService jwtService,
+                          AuthenticationManager authenticationManager) {
         this.userService = userService;
-        this.adminService = adminService;
         this.jwtService = jwtService;
         this.authenticationManager = authenticationManager;
     }
@@ -61,22 +59,6 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<UserResponseDTO> loginUser (@RequestBody LoginDTO loginDTO){
-//        logger.info("Login Controller :: fetching info for user with email: " + loginDTO.getEmail());
-//
-//        Authentication authentication = authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(
-//                        loginDTO.getEmail(),
-//                        loginDTO.getPassword()));
-//
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-//
-//        UserResponseDTO loggedInUser = userService.accessUser(loginDTO);
-//        logger.info("User loggedIn");
-//        return ResponseEntity.ok().body(loggedInUser);
-//    }
-
     // Login using JWT
     @PostMapping("/login")
     public String loginViaJWT(@RequestBody LoginDTO loginDTO){
@@ -84,7 +66,8 @@ public class UserController {
                 new UsernamePasswordAuthenticationToken(loginDTO.getEmail(), loginDTO.getPassword()));
 
         if (authentication.isAuthenticated()){
-            return jwtService.generateToken(loginDTO.getEmail());
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            return jwtService.generateToken(loginDTO.getEmail(), userDetails.getAuthorities());
         }
         else {
             throw new UserNotFoundException("Invalid user request !");

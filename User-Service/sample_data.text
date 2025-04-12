@@ -1,0 +1,302 @@
+[
+  {
+    "name": "Liam Smith",
+    "username": "Liam_24",
+    "email": "liam.smith@example.com",
+    "password": "helloLiam123?"
+  },
+  {
+    "name": "Emma Johnson",
+    "username": "Emma_30",
+    "email": "emma.j@example.com",
+    "password": "helloEmma123?"
+  },
+  {
+    "name": "Noah Williams",
+    "username": "Noah_22",
+    "email": "noah.w@example.com",
+    "password": "helloNoah123?"
+  },
+  {
+    "name": "Olivia Brown",
+    "username": "Olivia_28",
+    "email": "olivia.b@example.com",
+    "password": "helloOlivia1?"
+  },
+  {
+    "name": "William Jones",
+    "username": "Will_26",
+    "email": "will.j@example.com",
+    "password": "helloWill123?"
+  },
+  {
+    "name": "Ava Garcia",
+    "username": "Ava_29",
+    "email": "ava.g@example.com",
+    "password": "helloAva1234?"
+  },
+  {
+    "name": "James Miller",
+    "username": "James_31",
+    "email": "james.m@example.com",
+    "password": "helloJames12?"
+  },
+  {
+    "name": "Isabella Davis",
+    "username": "Bella_25",
+    "email": "bella.d@example.com",
+    "password": "helloBella12?"
+  },
+  {
+    "name": "Logan Rodriguez",
+    "username": "Logan_27",
+    "email": "logan.r@example.com",
+    "password": "helloLogan12?"
+  },
+  {
+    "name": "Sophia Wilson",
+    "username": "Soph_23",
+    "email": "soph.w@example.com",
+    "password": "helloSoph12?"
+  },
+  {
+    "name": "Benjamin Martinez",
+    "username": "Ben_32",
+    "email": "ben.m@example.com",
+    "password": "helloBen1234?"
+  },
+  {
+    "name": "Mia Anderson",
+    "username": "Mia_24",
+    "email": "mia.a@example.com",
+    "password": "helloMia1234?"
+  },
+  {
+    "name": "Mason Taylor",
+    "username": "Mason_30",
+    "email": "mason.t@example.com",
+    "password": "helloMason1?"
+  },
+  {
+    "name": "Charlotte Thomas",
+    "username": "Char_26",
+    "email": "char.t@example.com",
+    "password": "helloChar12?"
+  },
+  {
+    "name": "Elijah Hernandez",
+    "username": "Eli_28",
+    "email": "eli.h@example.com",
+    "password": "helloEli1234?"
+  },
+  {
+    "name": "Amelia Moore",
+    "username": "Mia_27",
+    "email": "amelia.m@example.com",
+    "password": "helloMia123?"
+  },
+  {
+    "name": "Oliver Martin",
+    "username": "Oli_29",
+    "email": "oli.m@example.com",
+    "password": "helloOli1234?"
+  },
+  {
+    "name": "Harper Jackson",
+    "username": "Harp_25",
+    "email": "harper.j@example.com",
+    "password": "helloHarp12?"
+  },
+  {
+    "name": "Jacob Thompson",
+    "username": "Jake_31",
+    "email": "jake.t@example.com",
+    "password": "helloJake123?"
+  },
+  {
+    "name": "Evelyn White",
+    "username": "Eve_24",
+    "email": "eve.w@example.com",
+    "password": "helloEve1234?"
+  },
+  {
+    "name": "Michael Lopez",
+    "username": "Mike_30",
+    "email": "mike.l@example.com",
+    "password": "helloMike123?"
+  },
+  {
+    "name": "Abigail Lee",
+    "username": "Abby_22",
+    "email": "abby.l@example.com",
+    "password": "helloAbby12?"
+  },
+  {
+    "name": "Alexander Gonzalez",
+    "username": "Alex_28",
+    "email": "alex.g@example.com",
+    "password": "helloAlex12?"
+  },
+  {
+    "name": "Emily Harris",
+    "username": "Em_26",
+    "email": "em.h@example.com",
+    "password": "helloEmily12?"
+  },
+  {
+    "name": "Daniel Clark",
+    "username": "Dan_29",
+    "email": "dan.c@example.com",
+    "password": "helloDan1234?"
+  },
+  {
+    "name": "Elizabeth Lewis",
+    "username": "Liz_25",
+    "email": "liz.l@example.com",
+    "password": "helloLiz1234?"
+  },
+  {
+    "name": "Matthew Robinson",
+    "username": "Matt_31",
+    "email": "matt.r@example.com",
+    "password": "helloMatt12?"
+  },
+  {
+    "name": "Sofia Walker",
+    "username": "Sofi_23",
+    "email": "sofi.w@example.com",
+    "password": "helloSofi12?"
+  },
+  {
+    "name": "Henry Hall",
+    "username": "Hen_27",
+    "email": "hen.h@example.com",
+    "password": "helloHenry12?"
+  },
+  {
+    "name": "Avery Allen",
+    "username": "Ave_24",
+    "email": "ave.a@example.com",
+    "password": "helloAvery1?"
+  },
+  {
+    "name": "Scarlett Young",
+    "username": "Scar_30",
+    "email": "scar.y@example.com",
+    "password": "helloScar12?"
+  },
+  {
+    "name": "Joseph King",
+    "username": "Joe_28",
+    "email": "joe.k@example.com",
+    "password": "helloJoe1234?"
+  },
+  {
+    "name": "Victoria Wright",
+    "username": "Vic_26",
+    "email": "vic.w@example.com",
+    "password": "helloVic123?"
+  },
+  {
+    "name": "David Scott",
+    "username": "Dave_29",
+    "email": "dave.s@example.com",
+    "password": "helloDave12?"
+  },
+  {
+    "name": "Madison Green",
+    "username": "Madi_25",
+    "email": "madi.g@example.com",
+    "password": "helloMadi12?"
+  },
+  {
+    "name": "Samuel Adams",
+    "username": "Sam_31",
+    "email": "sam.a@example.com",
+    "password": "helloSam1234?"
+  },
+  {
+    "name": "Luna Baker",
+    "username": "Luna_23",
+    "email": "luna.b@example.com",
+    "password": "helloLuna12?"
+  },
+  {
+    "name": "Jackson Nelson",
+    "username": "Jack_27",
+    "email": "jack.n@example.com",
+    "password": "helloJack12?"
+  },
+  {
+    "name": "Grace Carter",
+    "username": "Grac_24",
+    "email": "grac.c@example.com",
+    "password": "helloGrace1?"
+  },
+  {
+    "name": "Sebastian Mitchell",
+    "username": "Seb_30",
+    "email": "seb.m@example.com",
+    "password": "helloSeb12?"
+  },
+  {
+    "name": "Chloe Perez",
+    "username": "Chlo_28",
+    "email": "chlo.p@example.com",
+    "password": "helloChloe1?"
+  },
+  {
+    "name": "Aiden Roberts",
+    "username": "Aid_26",
+    "email": "aid.r@example.com",
+    "password": "helloAiden1?"
+  },
+  {
+    "name": "Penelope Turner",
+    "username": "Pen_29",
+    "email": "pen.t@example.com",
+    "password": "helloPene12?"
+  },
+  {
+    "name": "Caleb Phillips",
+    "username": "Cal_25",
+    "email": "cal.p@example.com",
+    "password": "helloCaleb1?"
+  },
+  {
+    "name": "Riley Campbell",
+    "username": "Rile_31",
+    "email": "rile.c@example.com",
+    "password": "helloRile12?"
+  },
+  {
+    "name": "Zoey Parker",
+    "username": "Zoey_23",
+    "email": "zoey.p@example.com",
+    "password": "helloZoey12?"
+  },
+  {
+    "name": "Ryan Evans",
+    "username": "Ryan_27",
+    "email": "ryan.e@example.com",
+    "password": "helloRyan12?"
+  },
+  {
+    "name": "Nora Edwards",
+    "username": "Nora_24",
+    "email": "nora.e@example.com",
+    "password": "helloNora12?"
+  },
+  {
+    "name": "Nathan Collins",
+    "username": "Nate_30",
+    "email": "nate.c@example.com",
+    "password": "helloNate12?"
+  },
+  {
+    "name": "Hazel Stewart",
+    "username": "Haze_28",
+    "email": "haze.s@example.com",
+    "password": "helloHaze12?"
+  }
+]
